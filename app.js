@@ -74,10 +74,10 @@ app.route("/articles")
 
 // **************************** REST METHODS FOR 'specific article' START **************************** //
 
-app.route("/articles/:title")
+app.route("/article/:title")
 
 .get((req, res) => {
-  console.log("Request GET : /articles/" + req.params.title);
+  console.log("Request GET : /article/" + req.params.title);
 
   const articleTitle = req.params.title;
   Article.findOne({title: articleTitle}, (err, articleFound) => {
@@ -93,7 +93,7 @@ app.route("/articles/:title")
 })
 
 .put((req, res) => {
-  console.log("Request PUT : /articles/" + req.params.title);
+  console.log("Request PUT : /article/" + req.params.title);
   console.log("Request body: { \ntitle: " + req.body.title + ",\ncontent: " + req.body.content + "\n}");
 
   Article.update({
@@ -113,7 +113,7 @@ app.route("/articles/:title")
 })
 
 .patch((req, res) => {
-  console.log("Request PATCH : /articles/" + req.params.title);
+  console.log("Request PATCH : /article/" + req.params.title);
   console.log("Request body: { \ntitle: " + req.body.title + ",\ncontent: " + req.body.content + "\n}");
 
   Article.update({
@@ -130,7 +130,7 @@ app.route("/articles/:title")
 })
 
 .delete((req, res) => {
-    console.log("Request PATCH : /articles/" + req.params.title);
+    console.log("Request DELETE : /article/" + req.params.title);
 
     Article.deleteOne({
       title: req.params.title
